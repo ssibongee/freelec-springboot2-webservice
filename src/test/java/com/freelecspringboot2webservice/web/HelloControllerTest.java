@@ -26,5 +26,17 @@ class HelloControllerTest {
                 .andExpect(content().string(hello));
     }
 
+    @Test
+    @DisplayName("/hello/dto로 GET 요청을 보내면 요청파라미터로 전달된 값들을 JSON 형태로 반환한다.")
+    void responseHelloResponseDto() throws Exception {
+        String name = "hello";
+        int amount = 100;
 
+        mvc.perform(get("/hello/dto")
+                .param("name", name)
+                .param("amount", String.valueOf(amount)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name", is(name)))
+                .andExpect(jsonPath("$.amount", is(amount)));
+    }
 }

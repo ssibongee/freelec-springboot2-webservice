@@ -1,6 +1,6 @@
 package com.freelecspringboot2webservice.web.dto;
 
-import com.freelecspringboot2webservice.web.post.Post;
+import com.freelecspringboot2webservice.web.domain.post.Post;
 import lombok.Getter;
 
 @Getter

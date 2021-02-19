@@ -1,4 +1,4 @@
-package com.freelecspringboot2webservice.web.post;
+package com.freelecspringboot2webservice.web.domain.post;
 
 import lombok.Builder;
 import lombok.Getter;

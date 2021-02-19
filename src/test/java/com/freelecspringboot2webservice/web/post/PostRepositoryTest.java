@@ -1,5 +1,7 @@
 package com.freelecspringboot2webservice.web.post;
 
+import com.freelecspringboot2webservice.web.domain.post.Post;
+import com.freelecspringboot2webservice.web.domain.post.PostRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

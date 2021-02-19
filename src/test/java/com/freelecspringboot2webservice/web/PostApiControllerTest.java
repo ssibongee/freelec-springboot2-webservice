@@ -2,8 +2,8 @@ package com.freelecspringboot2webservice.web;
 
 import com.freelecspringboot2webservice.web.dto.PostSaveRequestDto;
 import com.freelecspringboot2webservice.web.dto.PostUpdateRequestDto;
-import com.freelecspringboot2webservice.web.post.Post;
-import com.freelecspringboot2webservice.web.post.PostRepository;
+import com.freelecspringboot2webservice.web.domain.post.Post;
+import com.freelecspringboot2webservice.web.domain.post.PostRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

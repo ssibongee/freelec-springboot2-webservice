@@ -1,6 +1,7 @@
 package com.freelecspringboot2webservice.service.post;
 
 import com.freelecspringboot2webservice.advice.exception.PostNotFoundException;
+import com.freelecspringboot2webservice.web.dto.PostListResponseDto;
 import com.freelecspringboot2webservice.web.dto.PostResponseDto;
 import com.freelecspringboot2webservice.web.dto.PostSaveRequestDto;
 import com.freelecspringboot2webservice.web.dto.PostUpdateRequestDto;
@@ -9,6 +10,9 @@ import com.freelecspringboot2webservice.web.domain.post.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -40,5 +44,21 @@ public class PostService {
         );
 
         return new PostResponseDto(post);
+    }
+
+    @Transactional(readOnly = true)
+    public List<PostListResponseDto> findAllDesc() {
+        return postRepository.findAllDesc().stream()
+                .map(PostListResponseDto::new)
+                .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public void delete(Long id) {
+        Post post = postRepository.findById(id).orElseThrow(
+                () -> new PostNotFoundException(String.valueOf(id))
+        );
+
+        postRepository.delete(post);
     }
 }

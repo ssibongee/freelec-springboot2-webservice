@@ -52,4 +52,13 @@ public class PostService {
                 .map(PostListResponseDto::new)
                 .collect(Collectors.toList());
     }
+
+    @Transactional
+    public void delete(Long id) {
+        Post post = postRepository.findById(id).orElseThrow(
+                () -> new PostNotFoundException(String.valueOf(id))
+        );
+
+        postRepository.delete(post);
+    }
 }
